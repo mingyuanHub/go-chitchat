@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	// "errors"
+	"errors"
 	"fmt"
 	_ "github.com/lib/pq"
 )
@@ -40,6 +40,10 @@ func (post *Post) Create() (err error){
 }
 
 func (comment *Comment) Create() (err error) {
+	if comment.Post == nil {
+		err = errors.New("Page not found")
+		return
+	}
 	err = Db.QueryRow("insert into comments (content, author, post_id) values ($1, $2, $3) returning id", comment.Content, comment.Author, comment.Post.Id).Scan(&comment.Id)
 	if err != nil {
 		return err
