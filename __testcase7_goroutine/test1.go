@@ -53,5 +53,5 @@ func goPrint2() {
 }
 
 func main() {
-
+	fmt.Printf("%c", 1)
 }
