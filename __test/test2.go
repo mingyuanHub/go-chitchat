@@ -9,5 +9,9 @@ func init() {
 }
 
 func main() {
+	var a = 1;
 
+	fmt.Println(&a)
+
+	fmt.Println(*&a)
 }
