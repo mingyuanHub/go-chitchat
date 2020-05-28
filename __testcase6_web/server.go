@@ -2,17 +2,17 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"path"
 	"strconv"
-	"fmt"
 	// "goChitchat/__testcase6_web"
 )
 
 type Post struct {
-	Id int
+	Id      int
 	Content string
-	Author string
+	Author  string
 }
 
 func main() {
@@ -81,7 +81,7 @@ func handlePut(w http.ResponseWriter, r *http.Request) (err error) {
 	id, err := strconv.Atoi(path.Base(r.URL.Path))
 	if err != nil {
 		return
-	} 
+	}
 	len := r.ContentLength
 	body := make([]byte, len)
 	r.Body.Read(body)
