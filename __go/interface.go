@@ -51,4 +51,16 @@ func main() {
 	for i, v := range(hash) {
 		fmt.Println(i + ":", v)
 	}
+
+	hash1 := map[int]string {
+		1 : "1",
+		2 : "2",
+		3 : "3",
+	}
+	
+	for _, v := range(hash1) {
+		fmt.Println(v)
+	}
+
+
 }
